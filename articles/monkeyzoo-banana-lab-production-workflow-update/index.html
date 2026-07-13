@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Banana Lab: MonkeyZoo's Comic Production Workflow Gets a Real Studio</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="The Banana Lab: MonkeyZoo's Comic Production Workflow Gets a Real Studio">
+<div class="meta">Product Ideas &middot; 2026-07-12</div>
+<h1>The Banana Lab: MonkeyZoo's Comic Production Workflow Gets a Real Studio</h1>
+<p class="meta">Originally shared by <a href="https://github.com/FlipThisCrypto/MonkeyZoo-Production-Workflow-System" rel="noopener"></a> on X &middot; retrieved 2026-07-12. This is added context and credit, not the original work.</p>
+<p>MonkeyZoo-Production-Workflow-System is Rick's tool for running the production side of the MonkeyZoo comic book series: taking a season of issues from idea to finished product without losing track of where each one is in the pipeline. Over the last 24 hours the project went from a set of scattered pieces to something that actually looks and feels like a studio.</p>
+<h2>What just shipped</h2>
+<p><strong>A name and a home.</strong> The app got rebranded as The Banana Lab, with a proper design system, a persistent workspace shell, and a live static preview synced to GitHub Pages so the interface can be checked at any time without spinning up the full app.</p>
+<p><strong>The production engine underneath.</strong> A structured production workflow engine landed, along with config, character bibles, and an active season plan. This is the backbone that everything else hangs off of: it is what turns "make a comic" into a repeatable process.</p>
+<p><strong>Character and story tools.</strong> The character and story workspaces got integrated into the shell, and a full Story and Script Generation Workspace was built out (#9). On top of that, guided issue creation (#6) gives a walked-through path for starting a new issue instead of staring at a blank page.</p>
+<p><strong>A dashboard to see it all.</strong> The issue production dashboard with stage controls (#8) is the piece that lets Rick see every issue in the season and where it sits in the pipeline, and move it forward.</p>
+<p><strong>Cleanup and honesty passes.</strong> A few commits specifically removed unverified production status labels and grounded the dashboard's data sources in what is actually true, rather than placeholder claims. There was also housekeeping: branch protection and repo validation, relative path fixes for character media on Pages, and handoff docs recording the productization task that got this whole push started.</p>
+<div class="explainer"><img src="explainer.png" alt="A simple pipeline diagram showing comic issues moving through stages from idea to finished product"><div class="cap">The dashboard's job: know where every issue sits in the pipeline.</div></div><h2>Why it matters</h2>
+<p>Running a comic series is not just drawing pages. It is scripts, character continuity, season planning, and knowing which issue is stuck where. This update turns that into an actual system: a workspace for generating story and script content, guided creation so starting a new issue is not a cold start, and a dashboard that reflects real state instead of guesses. For a solo or small-team comic operation, that is the difference between juggling spreadsheets and having a tool that just runs the season.</p>
+<h2>Rick's take</h2>
+<p>This one is fun for me because it is scratching my own itch. I wanted a way to run MonkeyZoo like a real production pipeline instead of tracking issues in my head, and in one day it went from an engine and some config files to something with a name, a look, and a dashboard I can actually click through. The part I am most into right now is the guided issue creation. Removing the blank-page problem for starting a new issue is a small thing on paper but it changes how often I actually sit down and start one. Early days still, but it already feels like a studio instead of a pile of scripts.</p>
+<h2>What's next</h2>
+<p>With the workflow engine, story workspace, and dashboard now in place, the natural next step is putting them through a real issue end to end and seeing where the seams show. Expect more grounding passes like the one that stripped out unverified status claims, since keeping the dashboard honest about real state is going to matter more as more issues move through it.</p>
+<h2>Source</h2>
+<p><a href="https://github.com/FlipThisCrypto/MonkeyZoo-Production-Workflow-System" rel="noopener">MonkeyZoo-Production-Workflow-System on GitHub</a></p>
+
+<div class="tags"><span>#MonkeyZoo</span><span>#TheBananaLab</span><span>#comicproduction</span><span>#workflowtools</span><span>#indiecreatortools</span><span>#GitHubPages</span><span>#devlog</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>
