@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Closer Look at DIG Network's Chia GitHub Repos</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="A Closer Look at DIG Network's Chia GitHub Repos">
+<div class="meta">Chia &middot; 2026-07-12</div>
+<h1>A Closer Look at DIG Network's Chia GitHub Repos</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2076317507561091551" rel="noopener">@digdotnet</a> on X &middot; retrieved 2026-07-12. This is added context and credit, not the original work.</p>
+<p>I stopped on this one because it is such a small ask. No thread, no big announcement, just a request to go star some repos. But when a project points straight at its own codebase instead of a landing page, I pay attention. It tells you where the real work is happening.</p>
+<h2>What was bookmarked</h2>
+<p>@digdotnet posted a short call to anyone on GitHub who is interested in Chia and DIG Network development, asking them to star three repositories: <a href="https://github.com/DIG-Network/dig-chrome-extension" rel="noopener">dig-chrome-extension</a>, <a href="https://github.com/DIG-Network/digstore" rel="noopener">digstore</a>, and <a href="https://github.com/DIG-Network/dig-node" rel="noopener">dig-node</a>. No pitch, no roadmap talk, just a direct nudge toward the code.</p>
+<div class="explainer"><img src="explainer.png" alt="A hand-sketched diagram showing three connected boxes representing a browser extension, storage layer, and network node."><div class="cap">A rough sketch of how the pieces likely fit together: browser client, storage layer, network node.</div></div><h2>Why it matters</h2>
+<p>Stars are a weird little signal in open source. They do not pay the bills and they do not guarantee adoption, but they do two real things: they raise visibility for a project inside GitHub's own discovery tools, and they give outside developers a fast read on whether something has any community behind it before they invest time digging in. For a Chia-adjacent project like DIG Network, that visibility matters more than usual, because Chia's developer base is smaller and more scattered across chains people are watching than something like Ethereum. A repo with a handful of stars can look abandoned even if the work behind it is active.</p>
+<p>The three repos also tell a story on their own. A browser extension, a storage layer, and a node all point toward the same idea: DIG Network is trying to make some kind of decentralized data or storage system usable from the browser, not just from the command line. That is a pattern I like seeing in the Chia ecosystem generally: less talk about the chain itself, more tooling that makes it usable for people who are not going to run a full node just to try something out.</p>
+<h2>The practical breakdown</h2>
+<p><strong>What it does:</strong> based on the repo names, digstore looks like the storage or data layer, dig-node looks like the network participant software, and dig-chrome-extension looks like the client-facing piece that would let a regular browser talk to that network.</p>
+<p><strong>Who it helps:</strong> developers who want to plug into DIG Network without building their own client from scratch, and anyone curious about what decentralized storage looks like on Chia specifically.</p>
+<p><strong>Why builders should care:</strong> three separate repos instead of one monolithic project usually means the team is thinking in layers. That is generally a healthier sign for long-term maintenance than one giant codebase trying to do everything.</p>
+<p><strong>What still needs work:</strong> the post itself does not include documentation links, version numbers, or usage details, so I cannot say how mature any of these repos are right now. That is worth checking directly on GitHub before assuming any of it is production ready.</p>
+<p><strong>What I would test first:</strong> if you are a developer, start with digstore. Storage layers tend to be the foundation everything else depends on, so reading through that repo first will tell you the most about how the rest of the system is meant to work.</p>
+<h2>Rick's take</h2>
+<p>I like seeing Chia projects treat their GitHub presence like it matters, because for a long time a lot of ecosystem tools lived quietly in Discord servers and never made it to a public repo at all. DIG Network putting three separate, named projects out there and asking people to engage with them directly is a good habit, and it is the kind of small thing that adds up over time. I do not know the current state of adoption for any of these repos, and the post does not tell me, so I will not pretend otherwise. But a team building storage, node, and browser tooling together on Chia is exactly the kind of layered infrastructure work I want to see more of in this ecosystem.</p>
+<h2>What to watch next</h2>
+<p>Worth checking back on activity in these three repos over the next few months: commit frequency, issue activity, and whether digstore and dig-node stay in sync as the project matures. If the browser extension gains real users, that would be a good sign the storage layer underneath it is stable enough for everyday use.</p>
+<h2>Source and links</h2>
+<p>Source: X post by @digdotnet, https://x.com/i/web/status/2076317507561091551, retrieved on 2026-07-12.</p>
+<p>External references:</p>
+<ul>
+<li>https://github.com/DIG-Network/dig-chrome-extension</li>
+<li>https://github.com/DIG-Network/digstore</li>
+<li>https://github.com/DIG-Network/dig-node</li>
+</ul>
+
+<div class="tags"><span>#chia</span><span>#dig-network</span><span>#open-source</span><span>#github</span><span>#decentralized-storage</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>

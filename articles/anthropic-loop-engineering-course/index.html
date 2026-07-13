@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why Anthropic's Loop Engineering Course Caught My Eye</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="Why Anthropic's Loop Engineering Course Caught My Eye">
+<div class="meta">AI Tools &middot; 2026-07-12</div>
+<h1>Why Anthropic's Loop Engineering Course Caught My Eye</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2076254742401921228" rel="noopener">@RoundtableSpace</a> on X &middot; retrieved 2026-07-12. This is added context and credit, not the original work.</p>
+<p>I stopped scrolling on this one because of two words next to each other: free and course. Add Anthropic to that and I am going to at least look.</p>
+<h2>What was bookmarked</h2>
+<p>@RoundtableSpace posted that Anthropic has published a free course on what they are calling Loop Engineering, and suggested that anyone using AI agents should bookmark it. The post links out to the course, though the link in the source material I have is a shortened one that I have not personally expanded or walked through yet. So everything below is based on the claim in the post itself, not a full review of the course content.</p>
+<div class="explainer"><img src="explainer.png" alt="A hand-drawn notebook diagram of a four-step cycle connected by arrows, representing an agent think-act-observe-adjust loop."><div class="cap">The loop is the part nobody shows in the demo video.</div></div><h2>Why it matters</h2>
+<p>If you have spent any time building with AI agents, you already know the real work is not the prompt. It is the loop. Agents that plan, act, check their own output, and decide whether to keep going or stop are only as good as the loop holding all of that together. Right now, most people design that loop by trial and error, copying patterns from other projects, or just hoping the model behaves.</p>
+<p>Anthropic putting out education specifically on the loop, rather than just API docs or a single prompting guide, is a signal that the industry is starting to treat agent loop design as its own skill. That is a useful shift. It means less "prompt engineering as folklore" and more actual structure around how agents should reason, act, and self-correct.</p>
+<h2>The practical breakdown</h2>
+<p><strong>What it does:</strong> Based on the name alone, Loop Engineering appears to focus on the repeated think, act, observe, adjust cycle that agents use to complete multi-step tasks. I want to be upfront that I have not confirmed the exact format or depth of the material yet.</p>
+<p><strong>Who it helps:</strong> Anyone building tool-using agents that need to run more than one step without falling apart, looping forever, or quietly failing.</p>
+<p><strong>Why builders should care:</strong> A lot of agent bugs come from loop design, not model quality. Agents that do not know when to stop, or that repeat the same failed action, are a loop problem, not a model problem.</p>
+<p><strong>What still needs work:</strong> I do not know yet whether this is a video series, written guide, or something interactive, and I have not confirmed the full scope of what it covers. Worth checking directly before treating it as gospel.</p>
+<p><strong>What I would test first:</strong> If the course gives concrete patterns for stopping conditions, retries, and self-checks, that alone would make it worth the time.</p>
+<h2>Rick's take</h2>
+<p>I like seeing a company that builds these models also put effort into teaching people how to use them well, instead of just shipping an API and letting everyone figure it out through pain. Loop design is one of those things that quietly determines whether an agent project feels solid or feels like duct tape. If Anthropic is turning that into something teachable, that is a good sign for anyone trying to build real agent workflows instead of demo-ware. I have not gone through the course myself yet, so I am not going to pretend to grade it, but the idea behind it lines up with what I keep running into when agents I build start misbehaving.</p>
+<h2>What to watch next</h2>
+<p>Worth watching whether this becomes part of a bigger educational push from Anthropic, and whether the patterns taught actually hold up once people apply them to messier, real-world agent setups instead of clean examples. I will be checking the course myself before I recommend specific techniques from it.</p>
+<h2>Source and links</h2>
+<p>Source: X post by @RoundtableSpace, https://x.com/i/web/status/2076254742401921228, retrieved on 2026-07-12.</p>
+<p>External references: the post includes a shortened link to the course itself, which was not expanded or verified as part of this write-up.</p>
+
+<div class="tags"><span>#skill</span><span>#bookmarks</span><span>#writing</span><span>#x</span><span>#content</span><span>#ai-tools</span><span>#agents</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>

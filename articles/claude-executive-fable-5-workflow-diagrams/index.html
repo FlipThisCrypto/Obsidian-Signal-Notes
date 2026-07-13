@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why One Executive's AI Workflow Got Turned Into 9 Diagrams</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="Why One Executive's AI Workflow Got Turned Into 9 Diagrams">
+<div class="meta">AI Tools &middot; 2026-07-11</div>
+<h1>Why One Executive's AI Workflow Got Turned Into 9 Diagrams</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2076090409684783229" rel="noopener">@RoundtableSpace</a> on X &middot; retrieved 2026-07-11. This is added context and credit, not the original work.</p>
+<p>I stopped on this one because it is not a tool launch or a demo. It is someone's actual daily setup, the stuff they run quietly in the background, laid out where the rest of us can study it.</p>
+<h2>What was bookmarked</h2>
+<p>@RoundtableSpace posted that a workflow belonging to a Claude executive, called "Fable 5" in the post, went public, and someone took the time to break the whole thing down into 9 diagrams. The post does not link the diagrams directly, but it names three core pieces of the system:</p>
+<ul>
+<li><strong>The Daily Loop</strong>, which automates recurring tasks.</li>
+<li><strong>The Trust Ledger</strong>, which tracks the AI's judgment and execution history over time.</li>
+<li><strong>Standing Goals</strong>, which keep the agent pursuing objectives continuously instead of waiting to be re-prompted.</li>
+</ul>
+<p>No GitHub repo, doc, or demo link was included in the post, so this is based on the description as shared.</p>
+<div class="explainer"><img src="explainer.png" alt="Hand-drawn notebook diagram showing three connected sketch panels representing a recurring task loop, a trust and history ledger, and a standing goals tracker."><div class="cap">The three pieces described in the post: a daily loop, a trust ledger, and standing goals, sketched out as a system.</div></div><h2>Why it matters</h2>
+<p>Most people using AI tools right now are still doing single-shot prompting: ask a question, get an answer, move on. What this post describes is different. It is a system where the AI has recurring jobs, a running record of how it has performed, and goals it keeps working toward without a human restarting the conversation every time.</p>
+<p>That is the shift a lot of builders are circling right now, from AI as a chatbot to AI as a standing process. Whether or not "Fable 5" ends up being the reference model people point to, the shape of it (loop, ledger, goals) is a pattern worth understanding on its own.</p>
+<h2>The practical breakdown</h2>
+<p><strong>What it does:</strong> Based on the post, the system pairs recurring automation (the Daily Loop) with an accountability layer (the Trust Ledger) and a persistence layer (Standing Goals), so the agent is not just reacting, it is operating.</p>
+<p><strong>Who it helps:</strong> Anyone trying to move from "I use AI to help with tasks" to "I have an AI system running parts of my work." That is relevant to solo builders, small teams, and creators who do not have the headcount to babysit every process by hand.</p>
+<p><strong>Why builders should care:</strong> The interesting part is not the AI model itself, it is the scaffolding around it. A Trust Ledger in particular is a smart idea regardless of what tool you are using: if an agent is making judgment calls and taking actions on your behalf, you want a record of what it decided and how it went, so you can course correct instead of finding out later something quietly drifted.</p>
+<p><strong>What still needs work:</strong> Without the actual diagrams or a written source doc in hand, it is hard to say how these three pieces are actually implemented, what tooling they run on, or how much of this is fully automated versus lightly supervised. The post is a great pointer to a concept, not a spec.</p>
+<p><strong>What I would test first:</strong> If I were experimenting with this myself, I would start small: pick one recurring task, put it in a loop, and just start keeping a simple log of what the AI decided and whether it was right. That is basically a homemade Trust Ledger, and it is useful even before you add anything fancier on top.</p>
+<h2>Rick's take</h2>
+<p>I like this one because it is describing something real people are already quietly doing, not a product pitch. The Trust Ledger idea especially stuck with me. I have said for a while that the boring, unglamorous part of using AI agents well is the tracking and follow-up, not the flashy automation. Seeing someone name that as its own piece of the system tells me other people are landing on the same conclusion from a different direction.</p>
+<p>I do not have the actual 9 diagrams in front of me, so I am reacting to the summary, and there is clearly more detail out there than what fits in one post. That is the one honest gap here. But the shape of the idea, loop plus ledger plus standing goals, is something I would recommend any builder sketch out for their own workflow, even a rough version on a sticky note.</p>
+<h2>What to watch next</h2>
+<p>If the full diagram breakdown surfaces publicly, it would be worth a second look to see how the Trust Ledger is actually structured, since that is the piece with the most real world value for anyone running agents unattended. I would also watch whether more people start naming their own workflows this explicitly. Giving a system a name and a shape, instead of leaving it as a pile of habits, tends to be the first step toward it becoming something repeatable and shareable.</p>
+<h2>Source and links</h2>
+<p>Source: X post by @RoundtableSpace, https://x.com/i/web/status/2076090409684783229, retrieved on 2026-07-11.</p>
+<p>External references: none provided in the source post.</p>
+
+<div class="tags"><span>#AITools</span><span>#automation</span><span>#agenticworkflows</span><span>#productivitysystems</span><span>#AIagents</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>
