@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MonkeyZoo Workflow System: QA and Release Workspaces Just Landed</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="MonkeyZoo Workflow System: QA and Release Workspaces Just Landed">
+<div class="meta">Product Ideas &middot; 2026-07-14</div>
+<h1>MonkeyZoo Workflow System: QA and Release Workspaces Just Landed</h1>
+<p class="meta">Originally shared by <a href="https://github.com/FlipThisCrypto/MonkeyZoo-Production-Workflow-System" rel="noopener"></a> on X &middot; retrieved 2026-07-14. This is added context and credit, not the original work.</p>
+<p>I have been building out the MonkeyZoo Comicbook Production Workflow System, which is exactly what it sounds like: a home-grown tool for managing the steps that turn a MonkeyZoo comic from raw pages into a finished, released issue. This is not a generic project management app. It is built around how a comic actually moves through production, and the last 24 hours added two pieces I have wanted in there for a while.</p>
+<h2>What just shipped</h2>
+<p>The big addition is a visual production QA workspace. This gives me a dedicated place to actually look at pages and catch problems before they go further down the pipeline, instead of relying on scattered notes or just eyeballing things in whatever folder they happen to be in.</p>
+<p>Right alongside that, I added a release preparation workspace. This is the staging area for getting an issue ready to actually go out the door, separate from the working files and separate from QA. Production and release prep are different jobs, so they get different spaces.</p>
+<p>I also went through and reconciled the navigation capability labels in the UI. Small change on paper, but it matters: as I added QA and release prep as real workspaces, the nav needed to actually say what each section does instead of leftover placeholder wording.</p>
+<div class="explainer"><img src="explainer.png" alt="Three connected icons showing production, QA, and release stages in a workflow"><div class="cap">Production, QA, and release prep are now distinct stages in the workflow.</div></div><h2>Why it matters</h2>
+<p>A comic series has a real pipeline: pages get drawn, they get checked, they get packaged, they get released. Up to now a lot of that lived in my head or in ad hoc folders. Having QA and release prep as their own workspaces inside the same system means the whole path from draft to published issue is starting to live in one place, with clear handoffs between stages instead of me trying to remember what state everything is in.</p>
+<h2>Rick's take</h2>
+<p>This is the part of building MonkeyZoo that I actually enjoy the most, not the drawing or the story beats, but figuring out the system underneath that lets the story beats actually ship on schedule. QA and release prep were the two gaps that bugged me the most, because without them I was doing quality checks and release packaging by memory and vibes. Having them as dedicated workspaces now means less of that lives in my head, and more of it lives in a tool I control and can keep improving. The nav cleanup is a small thing, but I would rather fix the labels the moment they stop matching reality than let a UI slowly drift into something confusing to look at.</p>
+<h2>What's next</h2>
+<p>With QA and release prep now in place, the natural next step is making sure they actually connect well to whatever comes before them in the pipeline, so a page can move cleanly from production into QA and from QA into release without me manually shuffling things around. I will keep sharing as more of the pipeline gets wired up.</p>
+<h2>Source</h2>
+<p><a href="https://github.com/FlipThisCrypto/MonkeyZoo-Production-Workflow-System" rel="noopener">MonkeyZoo-Production-Workflow-System on GitHub</a></p>
+
+<div class="tags"><span>#MonkeyZoo</span><span>#comicproduction</span><span>#workflowtools</span><span>#buildinginpublic</span><span>#indiecomics</span><span>#GitHub</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>
