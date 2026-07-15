@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Smallest Capable Coding Model I've Seen Yet</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="The Smallest Capable Coding Model I've Seen Yet">
+<div class="meta">Local LLMs &middot; 2026-07-14</div>
+<h1>The Smallest Capable Coding Model I've Seen Yet</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2077064327421374555" rel="noopener">@RoundtableSpace</a> on X &middot; retrieved 2026-07-14. This is added context and credit, not the original work.</p>
+<p>I stop for anything that claims to run a real coding model on hardware that does not need a fan the size of a hubcap. A 1 billion parameter model is small enough to sit on a laptop, a mini PC, or honestly whatever old box you have humming in a closet next to a Chia harvester. So when this one crossed my feed, I bookmarked it fast.</p>
+<h2>What was bookmarked</h2>
+<p>@RoundtableSpace posted about a 1B parameter model fine-tuned on something they call "Fable 5 thinking data." The pitch is straightforward: take reasoning traces from a larger, more capable model and distill them down into a much smaller model built specifically for coding and tool-use agent work. It ships as a GGUF, which means it runs through llama.cpp directly, or through anything built on top of it, like Ollama, LM Studio, or KoboldCpp. The post did not include a GitHub link or benchmark numbers, just the model description and the framing of it as "the smallest capable coding" model.</p>
+<div class="explainer"><img src="explainer.png" alt="A sketch-style diagram showing a large model's reasoning being distilled into a small compact model"><div class="cap">Distillation in a nutshell: take the reasoning, shrink the model.</div></div><h2>Why it matters</h2>
+<p>This sits right in the middle of a trend I keep circling back to: local automation. Cloud-hosted frontier models are strong, but they cost money per call, require a network connection, and hand your prompts to someone else's servers. A model that fits in a few hundred megabytes to a couple gigabytes and runs fully offline is a different kind of tool. It is not trying to replace a frontier model. It is trying to be useful in situations where a frontier model is overkill, unavailable, or too expensive to call constantly, like an agent that needs to check syntax, call a tool, or make a small coding decision in a loop.</p>
+<p>The idea of distilling "thinking" traces from a bigger model into a small one is not new, but it is one of the more promising directions in open local models right now. If it works, you get some of the reasoning behavior without needing the compute.</p>
+<h2>The practical breakdown</h2>
+<p><strong>What it does:</strong> runs as a small, GGUF-packaged model meant for coding and agentic tool-use tasks, using reasoning traces distilled from a larger "Fable 5" source.</p>
+<p><strong>Who it helps:</strong> builders who want a coding or tool-calling assistant running fully local, on modest hardware, without API costs or network dependency.</p>
+<p><strong>What problem it solves:</strong> the gap between "I want an agent that can reason a little" and "I do not have a GPU cluster." A 1B model that fits through llama.cpp opens the door to running it on a Raspberry Pi-class device, an old laptop, or a small home server.</p>
+<p><strong>What still needs work:</strong> the post does not include benchmarks, a repo link, or details on how "Fable 5 thinking data" was generated or curated. Distillation into a 1B model is a real technique, but quality at that size always comes with tradeoffs versus the source model, and there is no way to judge how well it holds up without testing it directly.</p>
+<p><strong>What I would test first:</strong> basic tool-use loops (file read, simple function calls, syntax checks) rather than open-ended reasoning tasks, since that is where small distilled models tend to do best relative to their size.</p>
+<h2>Rick's take</h2>
+<p>I like seeing more of these small, GGUF-native releases show up, because they are the ones that actually get used on the kind of hardware most people have sitting around, not a rented A100. The llama.cpp ecosystem keeps making it easier for a model like this to just work across Ollama, LM Studio, KoboldCpp, whatever you already have installed, and that portability is the real value here as much as the model itself. The one thing I would want before getting too excited is some independent testing against real coding tasks, since the post itself does not include benchmarks. That is not a knock on the project, just the natural next step before I would build something on top of it.</p>
+<h2>What to watch next</h2>
+<p>Worth keeping an eye out for community benchmarks or side-by-side comparisons against other small coding models, and for a public repo or model card with more detail on the Fable 5 training data. If it holds up on real tool-use tasks at that size, it is a solid data point for how far distillation can be pushed down into genuinely tiny, runs-anywhere models.</p>
+<h2>Source and links</h2>
+<p>Source: X post by @RoundtableSpace, https://x.com/i/web/status/2077064327421374555, Retrieved on 2026-07-14. External references: none included in the source post.</p>
+
+<div class="tags"><span>#LocalLLMs</span><span>#GGUF</span><span>#llama.cpp</span><span>#smallmodels</span><span>#codingagents</span><span>#opensource</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>

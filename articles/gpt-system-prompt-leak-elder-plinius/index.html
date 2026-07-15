@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A closer look at the system prompt leak making the rounds from @elder_plinius</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="A closer look at the system prompt leak making the rounds from @elder_plinius">
+<div class="meta">Research Notes &middot; 2026-07-14</div>
+<h1>A closer look at the system prompt leak making the rounds from @elder_plinius</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2077068520027001023" rel="noopener">@elder_plinius</a> on X &middot; retrieved 2026-07-14. This is added context and credit, not the original work.</p>
+<p>I stopped scrolling on this one because system prompts are the part of AI tools nobody shows you. You see the chat window, you see the output, but the actual instructions steering the model are usually locked away. When someone claims to have pulled the whole thing out into the open, I want to see what is actually in there.</p>
+<h2>What was bookmarked</h2>
+<p>@elder_plinius posted a claimed system prompt leak from a coding assistant, along with what they say is the accompanying tool list. The post shares a portion of it directly and says the full document runs over 42,000 words, too long to post in full, so they link out to their CL4R1T4S archive where the complete files live. The excerpt shared in the post starts mid-instruction and cuts off quickly, which is normal for this kind of post, X threads are not built for dumping tens of thousands of words.</p>
+<p>I want to be upfront about something: I cannot independently confirm this is a real, unmodified system prompt from the tool in question. Leaks like this circulate constantly in AI circles, some are accurate, some are partial, some get edited before they spread. I am treating this as an interesting claim worth digging into, not a confirmed fact.</p>
+<div class="explainer"><img src="explainer.png" alt="A hand-sketched diagram showing layered rings representing the different parts of a system prompt, like tool permissions and behavior rules."><div class="cap">System prompts are usually layered: tone and behavior rules, tool permissions, and safety guardrails stacked on top of each other.</div></div><h2>Why it matters</h2>
+<p>System prompts are the instructions a company writes to shape how their AI behaves before you ever type a word. They cover tone, safety boundaries, what tools the model can call, how it should format answers, what it should refuse, and a hundred small behavioral nudges most users never think about. When one leaks, even partially, it gives builders and curious people a rare look at how much invisible scaffolding sits underneath a product that feels simple on the surface.</p>
+<p>This connects to something I keep coming back to: the gap between what a tool looks like and how it actually works. A coding assistant that feels like a helpful teammate is often running on thousands of words of instructions about edge cases, tool permissions, and guardrails. Seeing that scaffolding, even in fragments, makes the whole thing less mysterious and more like the engineered system it actually is.</p>
+<h2>The practical breakdown</h2>
+<p><strong>What it does:</strong> shares a real or claimed system prompt and tool list from a coding assistant, giving outside observers a peek at how the model is instructed to behave and what tools it is allowed to call.</p>
+<p><strong>Who it helps:</strong> people building their own AI tools or agents can compare structure and phrasing choices against their own prompts. People trying to understand why an assistant behaves a certain way get a possible explanation. Researchers tracking how these prompts evolve across model versions get another data point.</p>
+<p><strong>Why builders should care:</strong> if you are writing your own system prompts for an agent or tool, seeing how a larger, presumably more resourced team structures theirs (assuming the leak is accurate) is useful reference material, even if you never copy it directly.</p>
+<p><strong>What still needs work:</strong> verification. Nothing about a leak like this is self-confirming. The honest move is to read it as a claim, cross-check anything that matters, and not treat it as gospel just because it is long and detailed. Length and specificity make things feel true, but they are not proof.</p>
+<p><strong>What I would test first:</strong> if you have access to the actual tool the prompt supposedly belongs to, you could probe its behavior against a few of the more specific instructions in the leak and see if the responses line up. That is a more useful test than just reading the text.</p>
+<h2>Rick's take</h2>
+<p>I like that people like @elder_plinius keep pulling on this thread. The CL4R1T4S project, from what this post points to, is basically an archive of system prompts collected over time, and that kind of open documentation effort is genuinely useful even when individual entries turn out to be partial or later disputed. It gives the rest of us something to study instead of guessing.</p>
+<p>My one real caveat: I would not repeat the specific model name or claims from this leak as confirmed fact anywhere that matters. Treat it the way you would treat any leak, interesting, worth reading, not yet verified. That is not a knock on the post, it is just how leaks work until something else corroborates them.</p>
+<h2>What to watch next</h2>
+<p>Worth watching whether other people cross-reference this leak against actual tool behavior, and whether CL4R1T4S keeps growing as a reference point for these kinds of documents. If system prompt archaeology becomes a regular habit for more builders, it could quietly raise the bar for how transparent AI companies are willing to be about their own instructions, or it could just stay a niche curiosity for people who like taking things apart. Either way, I will keep an eye on it.</p>
+<h2>Source and links</h2>
+<p>Source: X post by @elder_plinius, https://x.com/i/web/status/2077068520027001023, retrieved on 2026-07-14. External references: the post references the author's CL4R1T4S archive for the full document; no direct link was included in the retrieved post text.</p>
+
+<div class="tags"><span>#AITools</span><span>#ResearchNotes</span><span>#systemprompts</span><span>#LLMs</span><span>#promptengineering</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>

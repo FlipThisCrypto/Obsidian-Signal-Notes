@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MonkeyZoo Workflow: Locations and Props Get a Home, and the Publish Pipeline Goes Live</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="MonkeyZoo Workflow: Locations and Props Get a Home, and the Publish Pipeline Goes Live">
+<div class="meta">Product Ideas &middot; 2026-07-15</div>
+<h1>MonkeyZoo Workflow: Locations and Props Get a Home, and the Publish Pipeline Goes Live</h1>
+<p class="meta">Originally shared by <a href="https://github.com/FlipThisCrypto/MonkeyZoo-Production-Workflow-System" rel="noopener"></a> on X &middot; retrieved 2026-07-15. This is added context and credit, not the original work.</p>
+<p>I have been building the MonkeyZoo Production Workflow System to solve a very specific problem: keeping a comicbook series consistent across seasons, artists, and a lot of moving pieces. Locations, props, characters, art prompts, published issues, all of it needs one place to live and one set of rules for how it moves from idea to finished page. That is what this repo is.</p>
+<h2>What just shipped</h2>
+<p>The last day of work landed on two fronts.</p>
+<p>First, canon content. I added primary-reference images for every approved location and prop, and locked in the season locations and props for the Aug through Jan "Signal" story arc. That gives the series an actual visual bible to draw from instead of scattered notes.</p>
+<p>Second, the tooling to use that canon. I built foundation browsers in the UI so locations and props can actually be looked through and referenced, plus a Studio control panel for the art prompt pack and for publishing archives. Underneath that, I built out the ops side: an art prompt pack workspace, archive publishing, and backups, along with a promote/replace flow that keeps archives unique and leaves live test evidence behind so I can trust a publish actually worked.</p>
+<p>There is also a real-issue published run now, with an operator startup flow behind it, plus a batch of stability fixes: static web assets locked to LF line endings so cache-busting works correctly, and static safety and character resolution stabilized so the system does not choke on edge cases. I also wrote up a Phase 0 local ship baseline doc so there is a clear line in the sand for what "working locally" means before anything moves further downstream.</p>
+<div class="explainer"><img src="explainer.png" alt="Flat illustration of reference icon cards flowing through an arrow into a stamped, checked box"><div class="cap">From canon reference to a published issue: the shape of the new pipeline.</div></div><h2>Why it matters</h2>
+<p>A comic series lives or dies on consistency. If a location or a prop drifts between issues because nobody remembers what it looked like three months ago, readers notice. Having a canon library with real reference images, browsable in the UI, means anyone working on an issue (including future me) can pull up the actual approved version of a place or object instead of guessing. And the publish pipeline work means getting an issue from draft to shipped is turning into a real, repeatable process instead of a one-off scramble.</p>
+<h2>Rick's take</h2>
+<p>This is the part of building MonkeyZoo I like most: the boring infrastructure that makes the fun part possible. Locations and props sound small, but they are the backbone of a visual story, and getting them into a real browsable system with reference art attached is exactly the kind of unglamorous work that pays off every single issue after this one. The publish/archive pipeline landing in the same window feels good too. Promote-replace with unique archives and live test evidence is the difference between "I think it published" and "I know it published," and that matters a lot once there is a real audience reading these issues.</p>
+<h2>What's next</h2>
+<p>With the Phase 0 local ship baseline documented and a real issue already published through the new pipeline, the next stretch is about building on that foundation: more canon content for the Signal arc, and continuing to round out the Studio tooling around it. I will keep logging it here as it moves.</p>
+<h2>Source</h2>
+<p><a href="https://github.com/FlipThisCrypto/MonkeyZoo-Production-Workflow-System" rel="noopener">MonkeyZoo Production Workflow System on GitHub</a></p>
+
+<div class="tags"><span>#MonkeyZoo</span><span>#comicproduction</span><span>#workflowtools</span><span>#indiecomics</span><span>#buildinpublic</span><span>#GitHub</span><span>#artpipeline</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>
