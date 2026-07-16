@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Circuit's First Surplus Auction Just Wrapped, and the Mechanism Behind It Is Worth Understanding</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="Circuit's First Surplus Auction Just Wrapped, and the Mechanism Behind It Is Worth Understanding">
+<div class="meta">Chia &middot; 2026-07-15</div>
+<h1>Circuit's First Surplus Auction Just Wrapped, and the Mechanism Behind It Is Worth Understanding</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2077527775938801871" rel="noopener">@Circuit_DAO</a> on X &middot; retrieved 2026-07-15. This is added context and credit, not the original work.</p>
+<p>I stopped on this one because "first ever" is doing a lot of work in that post. When a protocol runs its first version of a mechanism, that is usually the moment worth paying attention to, not the tenth one. Circuit just ran its first surplus auction, and whether or not you hold either token involved, it is a small window into how the protocol actually manages itself day to day.</p>
+<h2>What was bookmarked</h2>
+<p>@Circuit_DAO posted that Circuit's first ever surplus auction had successfully concluded. The result: 50 BYC sold to the highest bidder for 10,000 CRT. The post also said more auctions would be held later that same day, July 15, starting at 5pm UTC. No external links were included, just the announcement itself.</p>
+<p>Based on the post, BYC appears to be Circuit's stablecoin and CRT appears to be Circuit's own token, though the post does not spell out the full tokenomics, so I am not going to guess beyond what is shown here.</p>
+<div class="explainer"><img src="explainer.png" alt="A hand-drawn notebook sketch showing a simple diagram of surplus tokens flowing into an auction and a protocol token flowing back out."><div class="cap">The basic shape of a surplus auction: excess supply goes in, demand for the native token comes out.</div></div><h2>Why it matters</h2>
+<p>Surplus auctions are a pattern that shows up in a few DeFi protocols, most famously in MakerDAO's design, where a protocol that generates more of its stablecoin than it needs (through fees, interest, or collateral operations) periodically auctions that surplus off for its own governance or utility token. The idea is usually to keep the system balanced and to give the native token some real utility beyond speculation, since people have to actually spend it to win the auction.</p>
+<p>I want to be upfront that the post does not explain Circuit's exact mechanism, so I am describing the general pattern this kind of auction usually follows, not confirming that Circuit's version works identically. But the shape of it, "surplus BYC sold for CRT," lines up with that general idea.</p>
+<p>For the Chia ecosystem specifically, this matters because it is one more example of a Chia-native project building out real operational infrastructure rather than just issuing a token and hoping. Auctions, treasury management, and surplus mechanisms are the unglamorous plumbing that makes a protocol feel like an actual system instead of a pitch deck.</p>
+<h2>The practical breakdown</h2>
+<p><strong>What it does:</strong> Converts protocol surplus (in this case BYC) into demand for the protocol's own token (CRT) through a competitive bidding process.</p>
+<p><strong>Who it helps:</strong> Anyone holding CRT who wants a functional reason for that token to matter, and anyone watching Circuit to see if its economic design holds up in practice rather than just on paper.</p>
+<p><strong>What still needs work:</strong> One auction is one data point. A single sale of 50 BYC for 10k CRT tells you almost nothing about long-term demand, pricing stability, or how often these surplus events happen. The real signal comes from watching several auctions in a row.</p>
+<p><strong>What I would test first:</strong> I would watch the next auction (the one scheduled for 5pm UTC the same day) and compare pricing and participation. Consistency across auctions is a much better indicator than a single successful one.</p>
+<h2>Rick's take</h2>
+<p>I like seeing Chia projects run real mechanisms instead of just talking about them. A surplus auction is a small thing on its face, 50 BYC for 10k CRT is not a headline number, but it means someone built the auction contract, someone tested it, and it actually cleared with a real bidder. That is the boring, necessary work that a lot of projects skip past. The one thing I would want to see more of is a track record, a handful of auctions back to back, so people can judge the mechanism instead of one clean result.</p>
+<h2>What to watch next</h2>
+<p>The next auctions were scheduled for later the same day, so if you want to see this in motion rather than read about it after the fact, that is the place to look. I would keep an eye on whether pricing stays consistent, whether participation grows, and whether Circuit shares any follow-up on how the surplus gets generated in the first place.</p>
+<h2>Source and links</h2>
+<p>Source: X post by @Circuit_DAO, https://x.com/i/web/status/2077527775938801871, retrieved on 2026-07-15. External references: none included in the source post.</p>
+
+<div class="tags"><span>#chia</span><span>#circuit</span><span>#defi</span><span>#stablecoin</span><span>#auctions</span><span>#crypto-infrastructure</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>
