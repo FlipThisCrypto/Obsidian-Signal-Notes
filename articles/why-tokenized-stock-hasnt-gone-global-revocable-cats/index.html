@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why Hasn't Tokenized Stock Gone Global Yet? A Question Worth Sitting With</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="Why Hasn't Tokenized Stock Gone Global Yet? A Question Worth Sitting With">
+<div class="meta">Chia &middot; 2026-07-16</div>
+<h1>Why Hasn't Tokenized Stock Gone Global Yet? A Question Worth Sitting With</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2077850562737897796" rel="noopener">@hadamcik</a> on X &middot; retrieved 2026-07-16. This is added context and credit, not the original work.</p>
+<p>Some bookmarks aren't announcements. They're just good questions sitting out in the open, waiting for someone to actually chase them down. That's what stopped me here.</p>
+<h2>What was bookmarked</h2>
+<p>@hadamcik posted a question on X aimed at two accounts: @permutocapital and @chia_project. The gist: Permuto Capital has been working on bringing stocks on-chain using an approach the post refers to as the 'AC/DC concept,' and the post doesn't spell out exactly what that stands for beyond the reference itself. The question is why that approach seems focused on the US, when there are plenty of jurisdictions outside SEC territory that might be open to something similar. The post also asks why Chia itself isn't pushing revocable CATs (Chia's token standard, built with a revoke function so issuers can maintain compliance control) as a path to native on-chain stocks elsewhere. No links, no answer, just the question sitting there: is this even possible outside the US?</p>
+<div class="explainer"><img src="explainer.png" alt="A hand-sketched diagram showing a token connected to a control switch, representing a revocable token compliance mechanism"><div class="cap">Revocable CATs, sketched simply: a token design that keeps an issuer's compliance lever attached.</div></div><h2>Why it matters</h2>
+<p>Tokenizing real securities is one of the more genuinely useful things a blockchain can do, and it's also one of the hardest, because the hard part was never the tech. It's the legal wrapper around the asset. Revocable CATs exist specifically because regulators want issuers to retain some control (freezing bad actors, responding to court orders, enforcing KYC) and a token standard that can't do that is a nonstarter for anything regulated. Chia built that capability early, which is one of the reasons this ecosystem keeps getting looked at seriously for real-world asset work.</p>
+<p>But the US isn't the only regulatory environment on earth, and it isn't even the most flexible one for this kind of experimentation. Plenty of jurisdictions have their own securities frameworks, some more accommodating to on-chain issuance than the SEC has historically been. If revocable CATs can satisfy a compliance-minded regulator in one country, the underlying question is whether that same structure could satisfy a different regulator somewhere else, or whether every jurisdiction needs its own bespoke legal and technical lift.</p>
+<h2>The practical breakdown</h2>
+<p><strong>What it does:</strong> revocable CATs give an issuer a built-in way to freeze or reclaim tokens, which is the kind of lever regulators tend to want before they'll bless an on-chain security.</p>
+<p><strong>Who it helps:</strong> any project trying to bring traditional financial instruments on-chain while staying inside a regulatory box, and any market where local rules make token-based issuance more approachable than in the US right now.</p>
+<p><strong>What problem it solves:</strong> the trust gap between 'this is just a token' and 'this is a token that a regulator would recognize as a compliant security.'</p>
+<p><strong>What still needs work:</strong> everything the post is actually asking about. There's no confirmed answer here for why the current focus seems US-centered, or whether other jurisdictions have been evaluated and ruled out, or whether it's simply a matter of sequencing (start with the biggest, most scrutinized market first, expand later). I don't know, and neither does the post.</p>
+<p><strong>What I'd test first:</strong> if I were poking at this, I'd want to see a small pilot in a jurisdiction with clearer or friendlier digital securities rules, just to see if the same revocable CAT structure holds up under a different legal regime without a full rebuild.</p>
+<p><strong>Where this could go next:</strong> if it turns out the compliance layer really does generalize across jurisdictions, that's a meaningful signal for how far this kind of tokenization could travel. If it doesn't, that's useful information too.</p>
+<h2>Rick's take</h2>
+<p>I like this question because it's the right kind of impatient. Permuto Capital working on bringing stocks on-chain through Chia is exactly the kind of real-world use case I want this ecosystem known for, not just as a technical flex but as something that actually changes how people access markets. Revocable CATs were a smart design choice for exactly this reason, they give issuers a compliance lever that regulators can actually work with. Whether that translates cleanly outside the US is a genuinely open question, and I don't think anyone's proven it one way or the other yet. That's fine. I'd rather see people ask this out loud than assume the US is the ceiling.</p>
+<h2>What to watch next</h2>
+<p>Keep an eye on whether Permuto Capital or anyone else in the Chia ecosystem talks publicly about expansion plans or jurisdiction-specific pilots. If revocable CATs get tested against a non-US regulatory framework, that's worth a follow-up article on its own.</p>
+<h2>Source and links</h2>
+<p>Source: X post by @hadamcik, https://x.com/i/web/status/2077850562737897796, retrieved on 2026-07-16. No external references were included in the post.</p>
+
+<div class="tags"><span>#chia</span><span>#tokenization</span><span>#revocable-cats</span><span>#permuto-capital</span><span>#real-world-assets</span><span>#crypto-infrastructure</span><span>#watchlist</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>
