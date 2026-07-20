@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yes, You Can Build on Chia. Someone Had to Say It.</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="Yes, You Can Build on Chia. Someone Had to Say It.">
+<div class="meta">Chia &middot; 2026-07-17</div>
+<h1>Yes, You Can Build on Chia. Someone Had to Say It.</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2078240435185517045" rel="noopener">@OrangeGooey</a> on X &middot; retrieved 2026-07-17. This is added context and credit, not the original work.</p>
+<p>There is a version of the Chia conversation that gets stuck on farming rigs, hard drive prices, and storage capacity. That part of the ecosystem is real. It is not the whole story.</p>
+<p>This week, @OrangeGooey posted a two-line reminder that building on Chia is both possible and not against the law, signed off with a 'thank you for coming to my ted talk,' and left it at that. Short. Dry. Pointed at something real.</p>
+<h2>What was bookmarked</h2>
+<p>Originally shared by @OrangeGooey on X. The post was two declarative sentences and a joke: you can build on Chia, it is not illegal, thank you, goodbye. No thread, no technical breakdown. Just the note and a link.</p>
+<p>The humor works because it is gesturing at something genuine. Chia gets written off in some circles as a farming coin, and the developer story tends to get lost in the noise around storage speculation and hard drive markets. @OrangeGooey is pushing back on that, and doing it in two lines.</p>
+<div class="explainer"><img src="explainer.png" alt="Abstract flow diagram showing locked node shapes connected by arrows to unlocked output nodes, representing a puzzle-and-solution model"><div class="cap">The coin-set model locks each coin behind a puzzle and unlocks it with a solution. No shared mutable state across the chain changes what can go wrong.</div></div><h2>Why it matters</h2>
+<p>The perception gap is the actual problem.</p>
+<p>Chia has a real smart contract layer. ChiaLisp is a real language. The coin-set model the chain runs on is a genuinely interesting approach to programmable money, distinct from both Ethereum's account model and Bitcoin's raw UTXO approach. The tooling has matured. Projects have shipped on-chain.</p>
+<p>The persistent framing in some corners of crypto still treats Chia as primarily a storage play. That was never the complete picture, and it is even less accurate now. Builders who dismiss Chia without looking at the development layer are skipping a chapter that is worth reading.</p>
+<h2>The practical breakdown</h2>
+<p><strong>ChiaLisp and CLVM.</strong> The smart contract language on Chia is ChiaLisp, a Lisp dialect that compiles to the Chia Lisp Virtual Machine (CLVM). It is different from Solidity in meaningful ways. The learning curve is real. But the security model is interesting: contracts are stateless puzzle-and-solution pairs rather than mutable state machines, which changes how you think about what can go wrong at the contract level.</p>
+<p><strong>The coin-set model.</strong> Instead of accounts, Chia uses coins. Each coin is locked by a puzzle (the contract logic) and unlocked by a solution (the spending conditions). Coins are immutable once created. This means there is no shared mutable state to corrupt across transactions. Some categories of exploits common on account-based chains simply do not apply in the same way here.</p>
+<p><strong>What you can build.</strong> CATs (Chia Asset Tokens) let you issue fungible tokens. NFTs are supported and have their own standard on the chain. Decentralized identity (DIDs) is built into the base layer. The Offers protocol enables atomic swaps directly in the wallet, without needing a separate DEX contract. Custom smart coins can handle multi-signature logic, escrow, automated treasury functions, and more.</p>
+<p><strong>Tooling and documentation.</strong> The Chia developer docs exist and are actively maintained. The CDV (Chia Dev Tools) CLI gives you a local testing environment. The community has been building libraries and utilities for years. It is not Ethereum in terms of ecosystem size, but it is not a blank page either. The infrastructure for serious builder work is there.</p>
+<h2>Rick's take</h2>
+<p>I am glad someone posted this. It is the kind of thing that needs to be said out loud sometimes, even when it sounds obvious to people already building in the ecosystem.</p>
+<p>Chia is one of those chains where the underlying technical design is more interesting than the market narrative around it would suggest. The coin-set model, ChiaLisp, the Offers protocol, the DID layer baked into the base: these are real building blocks with real design thought behind them. The team has been consistent and the chain has been running.</p>
+<p>The builder story is what keeps a blockchain relevant past the first hype cycle. Farming attracted a certain kind of attention early on. Development is what gives that attention somewhere to go. Chia has the development layer and it deserves to be used.</p>
+<p>For anyone on the fence: the best way to find out if it fits your use case is to read the ChiaLisp docs and look at what is already deployed on-chain. The ecosystem is smaller than Ethereum, but that also means your project is more visible and the community is easier to reach. There are real people here working on real things.</p>
+<h2>What to watch next</h2>
+<p>The practical signal is what is actually shipping on-chain, not what is theoretically possible. The Chia developer community has been active and the clearest way to track it is to follow the builders posting about what they are working on. Projects shipping real CATs, real contracts, real tooling updates: that is where the story is moving.</p>
+<p>@OrangeGooey's post is a two-line nudge. Worth taking seriously.</p>
+<h2>Source and links</h2>
+<p>Source: X post by @OrangeGooey, https://x.com/i/web/status/2078240435185517045, retrieved 2026-07-17.</p>
+<p>External references: One link included in the source post (destination unverified at time of writing). For Chia developer documentation: chialisp.com (ChiaLisp language reference) and the official developer resources at chia.net.</p>
+
+<div class="tags"><span>#chia</span><span>#chialisp</span><span>#smart-contracts</span><span>#blockchain</span><span>#builders</span><span>#coin-set-model</span><span>#crypto-infrastructure</span><span>#open-source</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>

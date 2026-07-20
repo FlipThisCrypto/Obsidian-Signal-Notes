@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gemma 4 Tool Calling Gets a Real Upgrade in Ollama 0.32.1</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="Gemma 4 Tool Calling Gets a Real Upgrade in Ollama 0.32.1">
+<div class="meta">Local LLMs &middot; 2026-07-17</div>
+<h1>Gemma 4 Tool Calling Gets a Real Upgrade in Ollama 0.32.1</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2078184037190144433" rel="noopener">@ollama</a> on X &middot; retrieved 2026-07-17. This is added context and credit, not the original work.</p>
+<p>Reliable tool calling in local models has been the hard part. Not the models themselves, not the hardware, but getting a model to invoke tools correctly and consistently without hallucinating function names or mangling arguments. That is why this update caught my eye.</p>
+<h2>What was bookmarked</h2>
+<p>@ollama posted about version 0.32.1, calling out significant improvements to Gemma 4's tool calling reliability, specifically for use in coding agents. The post included commands to launch Gemma 4 26B with an MLX engine option for better performance, aimed at builders running local inference setups.</p>
+<div class="explainer"><img src="explainer.png" alt="Whiteboard sketch showing the three-step flow from agent to tool call to result"><div class="cap">The reliability problem lives in the middle step.</div></div><h2>Why it matters</h2>
+<p>Tool calling is the bridge between a language model and actual software. When it works well, you get agents that can read files, run searches, call APIs, and chain tasks together without falling apart. When it does not work well, you get agents that skip tool calls, return malformed output, or hallucinate function signatures that break the pipeline downstream.</p>
+<p>Local models have lagged behind hosted APIs on this for a while. GPT-4 and Claude have had solid tool calling for some time. The open-source and locally hosted side has been catching up, but reliability has varied a lot by model and framework version. A point release that specifically targets tool calling reliability is a meaningful signal that the gap is narrowing.</p>
+<p>For anyone building coding agents that run locally, this matters in a practical way. A coding agent that can reliably call tools to read files, run tests, or check a repository is genuinely useful. One that drops tool calls or returns garbage on the first complex request is not.</p>
+<h2>The practical breakdown</h2>
+<p><strong>What it does.</strong> Ollama 0.32.1 improves how Gemma 4 handles the structured output required for tool calling, making it more consistent and less likely to fail mid-run through an agent workflow.</p>
+<p><strong>Who it helps.</strong> Builders running local coding agents, particularly those with hardware that can handle a 26B parameter model. The MLX engine reference points at Apple Silicon setups where that optimization can make a real difference in throughput.</p>
+<p><strong>What to try first.</strong> The commands in the post are straightforward. The basic launch gets you running quickly. The MLX variant is for people who want to squeeze more performance out of the same hardware without switching setups.</p>
+<p><strong>What still needs testing.</strong> The post says "much more reliable," which is an improvement claim, not a solved-it claim. Tool calling consistency still depends on how complex your tool definitions are, how you prompt the model, and what your agent framework expects back. Testing against your actual use case before committing to a production workflow is still the right move.</p>
+<p><strong>What problem it solves.</strong> It reduces the failure rate for one of the most frustrating local agent problems: a model that understands what you want but cannot reliably express it in the structured format the tool needs to receive.</p>
+<h2>Rick's take</h2>
+<p>Local tool calling reliability is one of those things that looks like a boring plumbing upgrade until you actually need it. Then it is the difference between an agent that works and one you have to babysit. Gemma 4 is already a capable model, and this makes it meaningfully more useful for the coding agent workflows I care about. Worth pulling the update and testing if you are on hardware that can run it.</p>
+<h2>What to watch next</h2>
+<p>The MLX engine path is worth following separately. Apple Silicon is increasingly competitive hardware for local inference, and improvements here tend to compound as both sides of the stack mature. The broader trend is local agents getting reliable enough to replace hosted API calls for more of the daily workload, and tool calling consistency is a core piece of that.</p>
+<h2>Source and links</h2>
+<p><strong>Source:</strong> X post by @ollama, https://x.com/i/web/status/2078184037190144433, retrieved 2026-07-17.</p>
+<p>No external project links were included in the source post.</p>
+
+<div class="tags"><span>#local-llms</span><span>#ollama</span><span>#gemma4</span><span>#tool-calling</span><span>#coding-agents</span><span>#apple-silicon</span><span>#mlx</span><span>#open-source</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>

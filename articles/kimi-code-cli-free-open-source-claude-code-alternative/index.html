@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kimi Code CLI Is Free, Open Source, and Does Something Most Coding Agents Don't</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="Kimi Code CLI Is Free, Open Source, and Does Something Most Coding Agents Don't">
+<div class="meta">AI Tools &middot; 2026-07-17</div>
+<h1>Kimi Code CLI Is Free, Open Source, and Does Something Most Coding Agents Don't</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2078222648539271430" rel="noopener">@zodchiii</a> on X &middot; retrieved 2026-07-17. This is added context and credit, not the original work.</p>
+<p>There are announcements you scroll past and ones that make you stop. Free. MIT license. A full coding agent CLI from a lab that just shipped a new model. That combination was worth a closer look.</p>
+<p>[hero image]</p>
+<h2>What was bookmarked</h2>
+<p>@zodchiii shared news that Moonshot AI, the lab behind the Kimi model line, released Kimi Code CLI: a free, open-source command-line coding agent. The post positioned it as a Claude Code alternative, noted the MIT license, and mentioned the same lab shipped their K3 model the prior day. Two features were called out before the post text cut off: screen recording as a direct chat input, and built-in modes including coder and explore.</p>
+<div class="explainer"><img src="explainer.png" alt="A notebook-style sketch diagram showing the three main modes of a CLI coding agent: coder, explore, and video input"><div class="cap">Mode structure at a glance: the coder and explore lanes plus video input as a new kind of context channel.</div></div><h2>Why it matters</h2>
+<p>AI coding tools have been dominated by paid APIs and closed or mixed-license tooling. Claude Code, Cursor, and Copilot are real products with real capabilities, but they all carry real costs. A free CLI under MIT changes the access equation, and not just at the hobbyist level.</p>
+<p>MIT means you can use it, modify it, and build on top of it commercially without license drift. That matters for small teams, open-source projects, and anyone building a workflow they need to own fully. It especially matters if the underlying model quality is serious, which Moonshot has some track record to suggest it might be.</p>
+<p>The other shift is what it signals about who is competing in this space. When labs with real research output ship open-source developer tooling for free, the cost floor for capable coding agents compresses. That is good for builders, full stop.</p>
+<p>[explainer image]</p>
+<h2>The practical breakdown</h2>
+<p><strong>What it does</strong>: Kimi Code CLI is a terminal-based coding agent. You work with it through conversation to handle file editing, code generation, and task execution in a local development context.</p>
+<p><strong>What stands out</strong>: Screen recording as a chat input. Most CLI agents are text-in, text-out. You describe what you want or what is broken, and the agent responds. Kimi Code CLI reportedly accepts a screen recording dropped directly into the conversation. The potential use case is obvious: instead of trying to explain a visual bug or a confusing UI state in words, you show it.</p>
+<p><strong>Built-in modes</strong>: The post mentioned coder mode and explore mode. Coder mode is the active lane, making edits and generating code. Explore mode is the read-only lane, useful for understanding a codebase before touching anything. The post appeared to list a third mode, but that text was cut off in the shared version.</p>
+<p><strong>MIT license</strong>: Minimal friction to use, fork, embed, or distribute. No commercial use restrictions baked into the license. That is the kind of choice that compounds over time as an open-source tool finds community adoption.</p>
+<p><strong>Cost</strong>: The tool itself is listed as free. Whether any model API access behind it carries a cost is worth checking against the official repo before committing to a workflow.</p>
+<p><strong>Who it helps most</strong>: Individual developers who want capable agentic coding without ongoing API fees. Teams building internal developer tooling that needs to stay open and extensible. Open-source projects that need to embed or adapt a coding agent without worrying about license complications downstream.</p>
+<p><strong>What still needs testing</strong>: Screen recording input quality depends entirely on how well the model processes video context in practice. The demo promise and the workflow reality can diverge. Worth getting hands on before assuming it works for your specific use case.</p>
+<h2>Rick's take</h2>
+<p>The screen recording input is the thing I keep coming back to. It sounds like a small feature and maybe it is, but the workflow problem it addresses is real. When something breaks visually, you spend a lot of energy converting what you see into words that an agent can act on. That translation step is where precision gets lost. If you can just drop the recording in and let the model work from what you actually saw, that is a meaningful change to the interaction.</p>
+<p>I have no idea yet how well it works. But putting it there at all suggests Moonshot is thinking about this as a tool for real developer workflows, not just a text generator with a terminal wrapper attached.</p>
+<p>The MIT license is the other piece worth paying attention to. MIT-licensed tools in active ecosystems tend to compound in ways that are hard to predict upfront. Once builders can fork and extend without friction, the tool becomes a platform for things the original team did not plan for. That is usually where the interesting stuff comes from.</p>
+<h2>What to watch next</h2>
+<p>How the underlying model actually performs on complex, real-world coding tasks outside of demos. Whether the community starts building on top of the MIT codebase and what they build. How the screen recording feature holds up with messier real-world inputs, not just clean examples. And whether other labs respond with similar open tooling, because that kind of competitive pressure tends to move fast once it starts.</p>
+<h2>Source and links</h2>
+<p>Source: X post by @zodchiii, https://x.com/i/web/status/2078222648539271430, retrieved 2026-07-17.</p>
+<p>External references: No external links were included in the shared post text. The official Kimi Code CLI repository was not linked in this post and should be located independently before publishing.</p>
+
+<div class="tags"><span>#ai-tools</span><span>#open-source</span><span>#cli</span><span>#coding-agents</span><span>#moonshot</span><span>#kimi</span><span>#mit-license</span><span>#builder-tools</span><span>#local-llm</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>

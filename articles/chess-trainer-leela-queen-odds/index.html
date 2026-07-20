@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Chess Trainer That Shows You What the Engine Fears</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="The Chess Trainer That Shows You What the Engine Fears">
+<div class="meta">AI Tools &middot; 2026-07-18</div>
+<h1>The Chess Trainer That Shows You What the Engine Fears</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2078545345752301925" rel="noopener">@bramcohen</a> on X &middot; retrieved 2026-07-18. This is added context and credit, not the original work.</p>
+<p>There is a moment in chess improvement where you stop asking "what is the best move?" and start asking "what does my opponent hate most?" Bram Cohen built a tool that applies that exact question to one of the strongest chess engines in the world, and the result is more interesting than it sounds.</p>
+<h2>What Was Bookmarked</h2>
+<p>Originally shared by @bramcohen on X, this is a link to a small open-source project called coach-leesa. The tool is designed to help players learn to beat Leela Chess Zero at Queen Odds. Instead of just letting you play against a handicapped engine and iterate blindly, it shows you the moves Leela is most afraid of you playing. The GitHub repo is at github.com/bramcohen/coach-leesa.</p>
+<div class="explainer"><img src="explainer.png" alt="An abstract hand-drawn diagram showing a chess position feeding into an AI engine loop that sends coaching signals back to a human learner."><div class="cap">Feed the position in, get the engine's fears back out. The loop is the training.</div></div><h2>Why It Matters</h2>
+<p>Playing against a strong chess engine, even with a material handicap as large as a queen, is still genuinely hard. Queen Odds sounds dramatic. It means the engine starts without its most powerful piece, roughly nine pawns worth of material. But Leela Chess Zero is not a weakened opponent at that setting. She compensates through near-perfect calculation and a strategic ceiling most human players simply cannot reach.</p>
+<p>The standard approach to training at this level is trial and error. You play, you lose, you try different lines, you read some prep. It works eventually, but it is slow and the feedback loop is indirect.</p>
+<p>Coach-leesa does something different. It uses Leela's own internal evaluations to figure out which moves most threaten her position from that handicapped state. That coaching comes from the engine itself, not from a human annotator guessing what matters at this level.</p>
+<p>The distinction is meaningful. At Queen Odds, there are moves that are objectively strong in a general chess sense and there are moves that create specific problems Leela struggles to solve at that material deficit. Those two categories overlap, but they are not identical. Generic chess wisdom does not always tell you which moves belong in the second category. The engine's own evaluations might.</p>
+<h2>The Practical Breakdown</h2>
+<p><strong>What it does:</strong> Coach-leesa sends positions to Leela and uses the engine's policy and evaluation outputs to identify moves she considers most dangerous for herself. That data becomes the training material.</p>
+<p><strong>Who it helps:</strong> Intermediate to strong club players who want to actually beat a strong engine at Queen Odds, not just lose slightly less. This is not a beginner tool. You need enough tactical ability to follow through on the plans the coach is pointing at.</p>
+<p><strong>Why builders should care:</strong> The underlying approach is broadly interesting. Using an opponent's own evaluation function to generate targeted training data is something that could apply well beyond chess. Adversarial training setups, security red-teaming, game AI development. Any domain where you can access an opponent's internal signal has this option available.</p>
+<p><strong>What still needs work:</strong> This is a personal project published to GitHub, not a polished product. There is no tutorial or community around it yet. If you want to use it you will need to be comfortable setting it up yourself.</p>
+<p><strong>What I would test first:</strong> Run a set of Queen Odds games using the tool's prep, then the same number without it. See if the win rate shifts and which types of positions the coached lines tend to reach.</p>
+<h2>Rick's Take</h2>
+<p>I bookmarked this one partly because it is Bram Cohen. He built BitTorrent, he built Chia, and when he puts something on GitHub it usually has a genuinely interesting idea underneath it.</p>
+<p>The thing that held my attention is the inversion. Most chess training asks what the strongest move is from a neutral standpoint. Coach-leesa asks what the engine most wants to avoid. Those are not the same question, especially at a specific material imbalance like Queen Odds. Leela has particular patterns she executes well and particular pressure she struggles with when she is down a queen. A tool that surfaces the second category is more useful than generic improvement advice for this specific problem.</p>
+<p>I think this kind of targeted, opponent-aware training is genuinely underused in open-source tools. Worth watching what the chess improvement community does with it.</p>
+<h2>What to Watch Next</h2>
+<p>If the approach gets extended to other handicap levels, the training use case widens. More broadly, using an engine's own policy outputs to generate training positions is an area where commercial tools have hints of this idea but open-source options are thin. Interested to see if this concept gets picked up by people working on AI training more generally, not just chess players.</p>
+<h2>Source and Links</h2>
+<p>Source: X post by @bramcohen Post URL: https://x.com/i/web/status/2078545345752301925 Retrieved: 2026-07-18</p>
+<p>External references:</p>
+<ul>
+<li>GitHub: https://github.com/bramcohen/coach-leesa</li>
+</ul>
+
+<div class="tags"><span>#chess</span><span>#AI-tools</span><span>#open-source</span><span>#leela-chess-zero</span><span>#adversarial-learning</span><span>#bramcohen</span><span>#training</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>
