@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Hermes Tools That Work Where APIs Stop</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="The Hermes Tools That Work Where APIs Stop">
+<div class="meta">AI Tools &middot; 2026-07-17</div>
+<h1>The Hermes Tools That Work Where APIs Stop</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2077923978249724073" rel="noopener">@tonysimons_</a> on X &middot; retrieved 2026-07-17. This is added context and credit, not the original work.</p>
+<p>Text in, text out. That worked for everything in this series up to Part 8. Part 9 is where Hermes learns to actually see the screen.</p>
+<p>[hero image: browser-computer-use-hero]</p>
+<h2>What was bookmarked</h2>
+<p>Tony Simons (@tonysimons_) published Part 9 of his Hermes Agent Master Class as a full X Article. The piece covers two new capability categories: browser automation and computer use. Browser automation turns Hermes into an actual Chromium browser that can navigate real pages, click real elements, fill real forms, and read each page as a structured accessibility tree. Computer use extends that further, letting the agent interact with any visible window on macOS, Windows, or Linux without moving your physical cursor or shifting your focus.</p>
+<div class="explainer"><img src="explainer.png" alt="A minimal diagram with an AGENT node in the center, two curved arrows pointing outward to a BROWSER rectangle on the left and a DESKTOP rectangle on the right"><div class="cap">Same agent, two different surfaces. Browser runs isolated in Chromium. Computer use runs on your actual desktop.</div></div><h2>Why it matters</h2>
+<p>It is relatively rare to see an agent series work through the full capability stack this carefully, and browser use and computer use are the layers where things get genuinely interesting. Browser automation and computer use address a real constraint: agents that only speak to APIs are blocked the moment the interface they need has no API to call.</p>
+<p>The distinction Tony draws between the two tools matters in practice. Browser automation runs inside an isolated Chromium instance, separate from your machine. The agent gets its own session with its own cookies, cache, and fingerprint. It cannot touch the rest of your system, and the session cleans up after inactivity. That isolation makes it the right tool for web tasks: sites that depend on JavaScript rendering, forms that require a real browser session, content that blocks API scrapers.</p>
+<p>Computer use operates on your actual desktop. That is a larger surface area, which is why it comes with more guardrails. But it also means the agent can reach things with no web equivalent: native applications, local dialogs, system settings. If it is visible on screen, Hermes can probably interact with it.</p>
+<p>One detail worth calling out is the hybrid routing feature. With a cloud provider configured, public URLs go through the cloud browser while localhost and private network addresses route automatically to a local Chromium instance. The agent can screenshot your local dev server and scrape a live website in the same session without switching providers manually. For anyone testing builds against live data, that matters.</p>
+<h2>The practical breakdown</h2>
+<p><strong>What the browser toolset does:</strong> The agent reads each page as an accessibility tree, a text-based snapshot of every interactive element with numbered reference IDs. It clicks by ID rather than guessing at pixel coordinates, which is meaningfully more reliable. Five backends cover different needs: Browserbase provides managed cloud browsers with residential proxies and CAPTCHA handling; Browser Use and Firecrawl are alternative cloud providers with their own anti-detection features; local Chromium via the DevTools Protocol lets the agent attach to your existing Chrome or Brave install; and local mode uses a Chromium install driven by the agent-browser CLI.</p>
+<p><strong>What computer use does:</strong> The agent captures any visible window and overlays numbered elements on every interactive item. Your physical cursor does not move. The target window does not come to front. Virtual desktops do not switch. Each session gets its own cursor identity, so concurrent agents stay clean and do not produce conflicting actions. The article notes that computer use works with any tool-capable model, including local endpoints, since the toolset communicates over MCP to cua-driver, an open-source background driver that handles the platform-specific accessibility stack.</p>
+<p><strong>Who it helps:</strong> Builders running workflows that touch interfaces without APIs. Developers testing against local builds. Anyone who has hit a wall because the tool they needed to automate only ships as a native app or a JavaScript-heavy web page.</p>
+<p><strong>What still needs work:</strong> Screenshots are expensive. The article puts a single screenshot at approximately 1,500 tokens. Hermes applies four optimizations to keep this manageable: keeping only the three most recent screenshots in context, stripping old image data from tool results with a context compressor, counting images at a flat 1,500-token rate regardless of base64 length, and clearing old tool results server-side on Anthropic. A full session lands around 30,000 screenshot tokens rather than what could be 600,000 without those controls. That gap is what makes desktop agents practical instead of theoretically interesting.</p>
+<p><strong>What I would test first:</strong> The web form signup example from the article is the clearest entry point. The agent navigates to a signup page, reads the accessibility tree, identifies the email and password fields, fills them, clicks submit, and takes a screenshot to confirm success. That is a concrete, bounded task that demonstrates the capability without needing a complex setup.</p>
+<p>[explainer image: browser-computer-use-explainer]</p>
+<h2>Rick's take</h2>
+<p>What I keep coming back to in this series is that Tony is working through the stack in order, and this installment is where things get genuinely interesting. Text-only agents are useful, but they run out of road fast once the task involves a real interface. Browser automation solves the web half of that problem. Computer use solves the rest.</p>
+<p>The background execution model is the part that changes how you think about this. Your cursor stays put. Your focus does not shift. The agent works alongside you without interrupting your session. That is a different relationship than most people picture when they imagine AI automation, and I think it is the right one.</p>
+<p>The token efficiency work is also worth appreciating. Getting from a theoretical 600,000 tokens down to 30,000 per session is not a minor optimization. It is the engineering that determines whether this is a practical daily tool or something that only makes sense in demos. Looking forward to Part 10.</p>
+<h2>What to watch next</h2>
+<p>Part 10 covers kanban boards: durable task boards that make work claimable, recoverable, and schedulable across multiple agents. That is the coordination layer that turns single-agent automation into something that can scale. If you are following this series in order, it is worth continuing.</p>
+<h2>Source</h2>
+<ul>
+<li>Source: X Article by @tonysimons_</li>
+<li>Post URL: https://x.com/i/web/status/2077923978249724073</li>
+<li>Retrieved: 2026-07-17</li>
+<li>External references: None linked in the source post</li>
+</ul>
+
+<div class="tags"><span>#AITools</span><span>#agents</span><span>#browserautomation</span><span>#computeruse</span><span>#Hermes</span><span>#automation</span><span>#buildertools</span><span>#localLLMs</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>
