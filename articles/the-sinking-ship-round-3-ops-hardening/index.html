@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Sinking Ship: Round 3 Done, Chest Verifier Live, Mint Ops Built to Last</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="The Sinking Ship: Round 3 Done, Chest Verifier Live, Mint Ops Built to Last">
+<div class="meta">Product Ideas &middot; 2026-07-22</div>
+<h1>The Sinking Ship: Round 3 Done, Chest Verifier Live, Mint Ops Built to Last</h1>
+<p class="meta">Originally shared by <a href="https://github.com/FlipThisCrypto/The-Sinking-Ship" rel="noopener"></a> on X &middot; retrieved 2026-07-22. This is added context and credit, not the original work.</p>
+<p>The Sinking Ship is my Chia NFT collection project. It is built around chests, grails, and characters from the Bepe universe, and it has been in heavy development with one clear goal: get the mint infrastructure right before anything goes public. This sprint was the biggest push yet.</p>
+<h2>What just shipped</h2>
+<p><strong>Brand and chain identity.</strong> The collection now carries the official Bepe banner and icon across the site and collection pages. On the chain side, I wired the owner's DID, royalty configuration, and collection UUID into the project and put a validation gate in front of anything that touches those values. If something drifts, the gate catches it before it becomes a problem.</p>
+<p><strong>In-browser chest verifier.</strong> This one I am genuinely proud of. I ported the chest verification logic to JavaScript and it now runs directly in the browser, producing byte-identical results to the original. Someone holding a chest can verify it without installing anything or trusting a third-party tool.</p>
+<p><strong>Content complete.</strong> All 44 grail bios are authored and wired into the metadata. The honor badge system design is finalized. The launch copy kit is done. I also wrote up the Wizard of the Deep puzzle proposal, which is waiting on owner ratification before it moves forward.</p>
+<p><strong>Round 3 ops hardening (30+ iterations).</strong> This was the core of the sprint. I built out a full mint operations layer: a go/no-go report generated from ops preflight data, an append-only mint decision log for governance audit trails, config hash stamping at mint open so any post-open edits get flagged, a stamp-gated reconcile wrapper that aborts on config drift, health JSONL snapshot comparison for regression detection, Prometheus alert rule scaffolding, buyer address redaction for public post-mortems, CSV export of refused purchases for support work, SLO.md protection against accidental deletion, cron-friendly health exit codes, a Merkle-style directory hash for bulk chest manifests, and a weekly governance checklist generator. CI lint is green.</p>
+<div class="explainer"><img src="explainer.png" alt="Abstract diagram showing a chest icon connecting to a green verification checkmark"><div class="cap">The in-browser chest verifier produces byte-identical results to the original, no install required.</div></div><h2>Why it matters</h2>
+<p>A mint with no ops tooling is a liability. Things go sideways: a host drops mid-mint, a config gets edited by mistake, the ledger bloats, a buyer disputes a transaction. I wanted tooling that could handle each of those scenarios with a paper trail instead of a panic. Round 3 was about building that layer before we need it.</p>
+<h2>Rick's take</h2>
+<p>Thirty iterations of ops infrastructure is not going to trend anywhere. Config hash stamping and governance checklists are not glamorous. But I have been around Chia long enough to know that the boring work before the launch is what determines whether the launch is clean or chaotic. I did not want to be the person scrambling to reconstruct a decision log after the fact. The in-browser verifier was genuinely fun to build. The rest was just doing the thing properly so I do not regret it later.</p>
+<h2>What's next</h2>
+<p>The Wizard of the Deep puzzle proposal is waiting on owner ratification. The master test plan and cross-linked checklist are in place, so the next real move is running actual test scenarios. Launch-ready is close.</p>
+<h2>Source</h2>
+<p><a href="https://github.com/FlipThisCrypto/The-Sinking-Ship" rel="noopener">The-Sinking-Ship on GitHub</a></p>
+
+<div class="tags"><span>#The-Sinking-Ship</span><span>#Chia</span><span>#NFT</span><span>#mint-ops</span><span>#blockchain</span><span>#building-in-public</span><span>#Bepe</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>

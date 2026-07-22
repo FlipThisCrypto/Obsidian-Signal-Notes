@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Orchard Dev Log: DataLayer Hardening Series Complete</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="The Orchard Dev Log: DataLayer Hardening Series Complete">
+<div class="meta">Product Ideas &middot; 2026-07-22</div>
+<h1>The Orchard Dev Log: DataLayer Hardening Series Complete</h1>
+<p class="meta">Originally shared by <a href="https://github.com/FlipThisCrypto/the-orchard" rel="noopener"></a> on X &middot; retrieved 2026-07-22. This is added context and credit, not the original work.</p>
+<p>The Orchard is an open-source environmental DePIN project I am building on the Chia blockchain. The concept is simple: plant an ESP32-based sensor node (a "Tree"), keep it running, and earn $JUICE tokens for verifiable, on-chain-attested uptime. The hardware talks to Chia's DataLayer, an attester signs and publishes sensor records, and the whole pipeline is designed to be provable by anyone who wants to check it.</p>
+<p>[hero image]</p>
+<h2>What just shipped</h2>
+<p>This batch covers iterations 31 through 50, and it was almost entirely DataLayer hardening work.</p>
+<p><strong>Shared exit codes and watermarking.</strong> The attest writer and the publish process now pull from a shared set of exit code constants instead of each defining their own numbers. Alongside that, I added watermark tracking for <code>last_tx</code> lookups, with tests to back it. The publisher can now reliably know where it left off without any guesswork.</p>
+<p><strong>Verification and publish integrity.</strong> <code>orchard-verify --json</code> has test coverage now. Publish watermark row counts are implemented and tested. These are not flashy, but they are the kind of foundations that make a DePIN system actually trustworthy instead of just claiming to be.</p>
+<p><strong>Schema versioning and Merkle integrity.</strong> <code>SCHEMA_VERSION</code> is now exported from the DataLayer package with format tests. A Merkle domain-separation smoke test is in place. The data pipeline now has a much more principled structure around how records are identified and validated.</p>
+<p><strong>Health endpoint.</strong> The dashboard exposes a <code>/api/health</code> liveness endpoint. Small addition, real ergonomics improvement for anyone running a node and wanting a quick check.</p>
+<p><strong>Documentation.</strong> DataLayer CLI exit codes are documented. Signing-key secret handling is documented. Post-write confirm lag recovery is documented. The operator runbook now links to the SPEC and the relevant ADRs. CONTRIBUTING points directly to the DataLayer test suite. This is the work that moves a project from "I kind of know how it works" to "someone else can actually run it."</p>
+<p>[explainer image]</p>
+<div class="explainer"><img src="explainer.png" alt="Three icons connected by lines: sensor node, chain link, reward coin"><div class="cap">Plant a Tree. Attest uptime. Earn $JUICE. That is the loop.</div></div><h2>Why it matters</h2>
+<p>DePIN only works if the data is honest. That means exit codes that are consistent across processes, watermarks that prevent duplicate or missed records, schema versions that travel with the data, and proofs a stranger can re-verify. Every one of these commits is pushing the DataLayer stack closer to that standard.</p>
+<h2>Rick's take</h2>
+<p>I have been working through a 50-iteration improvement plan on The Orchard, and iterations 31 through 50 closed it out in a single day. What I found is that the most tedious work: shared constants, format tests, documentation passes, is also the most stabilizing. The project feels genuinely solid in a way it did not before. The DataLayer layer is no longer a "hope it works" situation. It is tested, documented, and the exit codes mean something. That kind of progress does not show up in a screenshot, but it absolutely shows up when something breaks at 2am and you need to know exactly why.</p>
+<h2>What's next</h2>
+<p>The DataLayer hardening series is done. The natural next focus is higher-level: reward logic, season mechanics (the <code>HOURS_PER_SEASON</code> constant that got tested in this batch is part of that), and getting more Trees attesting real sensor data. The pipeline is ready.</p>
+<h2>Source</h2>
+<p><a href="https://github.com/FlipThisCrypto/the-orchard" rel="noopener">The Orchard on GitHub</a></p>
+
+<div class="tags"><span>#the-orchard</span><span>#chia-blockchain</span><span>#depin</span><span>#datalayer</span><span>#esp32</span><span>#open-source</span><span>#environmental</span><span>#juice-token</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>
