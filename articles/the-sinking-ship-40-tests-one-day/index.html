@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Sinking Ship: 40 Tests in One Day</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="The Sinking Ship: 40 Tests in One Day">
+<div class="meta">Product Ideas &middot; 2026-07-23</div>
+<h1>The Sinking Ship: 40 Tests in One Day</h1>
+<p class="meta">Originally shared by <a href="https://github.com/FlipThisCrypto/The-Sinking-Ship" rel="noopener"></a> on X &middot; retrieved 2026-07-23. This is added context and credit, not the original work.</p>
+<p>I've been building The Sinking Ship for a while now. It's a Chia blockchain collectibles project with generative ship art, rarity mechanics, an on-chain fulfillment engine, and a full website. The pieces have been coming together. This week I did something less flashy but more important: I wrote tests. A lot of them.</p>
+<h2>What just shipped</h2>
+<p>Forty test iterations in roughly 24 hours, covering the entire stack by theme.</p>
+<p><strong>Infrastructure and reliability.</strong> Tests landed for the circuit breaker (snapshot and half-open probe behavior), the budget guard (zero-budget edge cases), the reconcile lock (context manager cleanup on exit), and the timing utility (slow-section warnings). These are the guardrails that keep the engine from going sideways quietly.</p>
+<p><strong>Ship generation.</strong> Coverage for shipgen package initialization, version checks, rarity constants, Amano Ink art primitives, config loading, schema validation, and canonical JSON serialization. Eight JSON schemas now get validated as non-empty and structurally correct on every run.</p>
+<p><strong>Fulfillment and chain mechanics.</strong> Tests for dry-run offer builder determinism (same inputs, same outputs, every time), the fulfillment type system, and a 404 path on the mock coinset so the fake blockchain client fails correctly on unknown paths. The DRBG (deterministic random number generator) has salt-differentiation tests now, which matters when rarity rolls need to be reproducible and auditable.</p>
+<p><strong>Observability.</strong> Prometheus metric export has special character escaping tests. The JSON line formatter has exception logging coverage. Health check degradation when a circuit is open is tested explicitly.</p>
+<p><strong>CLI scripts and web.</strong> Tests across the render engine, validate-configs, Monte Carlo simulation, site link checker, build-site-data (with a new --out option), tune-weights (also with --out), the soak script, style scorer, placeholder sprite generator, brand and share card builder, polished asset installer, art pipeline utilities, documentation link checker, and an end-to-end pipeline smoke test. A Node.js verifier for the roll vector outputs is also in.</p>
+<p>The site SEO and security tests now validate sitemap, robots.txt, and security.txt standards. A chain identity test now rejects placeholder values outright, so stub data cannot reach production.</p>
+<div class="explainer"><img src="explainer.png" alt="A simple three-step diagram labeled Generate, Test, Ship, each with a checkmark above it"><div class="cap">The loop: build a piece, test it, trust it.</div></div><h2>Why it matters</h2>
+<p>When fulfillment touches real on-chain assets (Chia offers, actual NFTs), test coverage is not optional. A bug in the rarity roll or offer builder could mean minting the wrong thing or breaking a buyer's experience. Forty tests mean forty fewer ways the system can surprise me in production.</p>
+<h2>Rick's take</h2>
+<p>This was a heads-down sprint. I knew the code was outrunning the tests and I did not want to ship a fulfillment system without confidence in the pieces underneath it. Writing tests is not my favorite part, but debugging live problems is worse, so here we are.</p>
+<p>What I actually found useful: several of these edge cases (zero-budget guard, 404 on the mock coinset, placeholder rejection at the chain layer) surfaced design assumptions I had not spelled out clearly. That is worth something on its own, separate from the coverage number.</p>
+<h2>What's next</h2>
+<p>With coverage solid, the next move is running the fulfillment engine against real testnet conditions. The Admiral chest tier has its quantity ceiling locked in at 300. The site data pipeline now has configurable output, which means the publish step is getting close.</p>
+<h2>Source</h2>
+<p><a href="https://github.com/FlipThisCrypto/The-Sinking-Ship" rel="noopener">The-Sinking-Ship on GitHub</a></p>
+
+<div class="tags"><span>#chia</span><span>#nft</span><span>#blockchain</span><span>#testing</span><span>#generative-art</span><span>#open-source</span><span>#building-in-public</span><span>#collectibles</span><span>#chialisp</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>

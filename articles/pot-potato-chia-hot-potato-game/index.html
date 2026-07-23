@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pot Potato Is a Hot Potato Game Where Everyone Who Touched It Gets Paid</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="Pot Potato Is a Hot Potato Game Where Everyone Who Touched It Gets Paid">
+<div class="meta">Chia &middot; 2026-07-22</div>
+<h1>Pot Potato Is a Hot Potato Game Where Everyone Who Touched It Gets Paid</h1>
+<p class="meta">Originally shared by <a href="https://x.com/i/web/status/2079988090722996561" rel="noopener">@chia_project</a> on X &middot; retrieved 2026-07-22. This is added context and credit, not the original work.</p>
+<p>There are a lot of ways to show what a blockchain can actually do. Cameron Cooper chose a game about a glowing potato. That turns out to be a good choice.</p>
+<h2>What was bookmarked</h2>
+<p>@chia_project shared a post from @cameroncooper introducing pot-potato, a game built on the Chia Blockchain. The mechanic is compact: there is a pot of XCH sitting on-chain. Anyone can steal the potato by sending 1 XCH to the pot. When they do, every previous holder receives a royalty payment automatically. Whoever holds the potato for a full 24 hours without anyone stealing it wins the entire accumulated pot. The source code and a CLI tool are both available at the GitHub repo linked from the post.</p>
+<p>@chia_project described it as a game "only possible on Chia." That is a specific claim and it is worth taking seriously.</p>
+<div class="explainer"><img src="explainer.png" alt="Three circles with two curved arrows flowing from the rightmost back to the previous two, suggesting automatic royalty distribution"><div class="cap">When someone steals the potato, XCH flows back to everyone who held it before.</div></div><h2>Why it matters</h2>
+<p>The royalty mechanic is the technical heart of this. When a new player steals the potato, they do not just add XCH to a pool. The coin automatically distributes a portion of that payment to every person who held the potato before them. That distribution happens at the coin level, enforced by the spending conditions written into the coin puzzle itself, with no central server involved and no third party to trust.</p>
+<p>That is a meaningful property to demonstrate in something as small as a game. It is also the kind of thing that sounds easy until you think about what it would take to implement reliably. The growing list of previous holders, each entitled to a slice of any future steal, has to be encoded somewhere the chain can enforce. Chia's coin model is designed around puzzles written in ChiaLISP that encode exactly these kinds of spending conditions atomically. Whether another chain could do this as cleanly as the holder list grows is worth comparing, but the fact that Cameron shipped this as a small CLI game, not a research paper, suggests the implementation is genuinely tractable.</p>
+<h2>The practical breakdown</h2>
+<p><strong>What it does:</strong> You pay 1 XCH to steal the potato. The coin immediately distributes royalties to every previous holder. The clock resets to 24 hours. Hold it longer than anyone else cares to, and the pot is yours.</p>
+<p><strong>Who it is for:</strong> Right now, Chia developers and people who want a working example of coin puzzle mechanics before building something more complex. It also works as a simple introduction to what on-chain royalties can look like in practice.</p>
+<p><strong>Why builders should care:</strong> Most blockchain demos show coins moving from one wallet to another. This one shows automatic royalty distribution across a growing list of recipients, all enforced without a smart contract owner or admin key. If you are thinking about creator royalties, contributor splits, cascading incentives, or any system where future transactions should include past participants, this code is worth reading through.</p>
+<p><strong>What still needs work:</strong> The game is intentionally small, and the economics around a growing holder list are worth watching in practice. As the list of previous holders grows, each steal distributes to more addresses. How that scales in terms of fee structure and coin size is worth observing as more players interact with it.</p>
+<p><strong>What I would test first:</strong> Play a round. Then read the source. The gap between understanding the game and understanding what the coin puzzle is actually doing is where the useful learning lives.</p>
+<h2>Rick's take</h2>
+<p>What I appreciate about this is that Cameron Cooper did not write a whitepaper about what Chia could theoretically do with royalties. He built a thing, put the source on GitHub, and let people play with it. That is a more useful contribution than most ecosystem demos.</p>
+<p>The automatic royalty-to-previous-holders mechanic is the part I keep thinking about. It is a real pattern with real applications outside games: creator splits, contributor royalties, systems where early participants share in later activity. Seeing it work in something small and low-stakes is a good way to understand the shape of the problem before trying to build it at scale.</p>
+<p>I am glad @chia_project shared this. Small, working things like pot-potato are how ecosystems actually grow.</p>
+<h2>What to watch next</h2>
+<p>The royalty distribution logic in pot-potato is worth returning to as a reference implementation for builders working on Chia. If the holder list grows and the game sees real activity, the on-chain behavior under load will be informative. The pattern itself, automatic cascading royalties enforced at the coin level, has a longer future than any single game.</p>
+<h2>Source and links</h2>
+<p>Source: X post by @chia_project, https://x.com/i/web/status/2079988090722996561, retrieved 2026-07-22. Quoted post: @cameroncooper, https://x.com/i/web/status/2079571111365288278. GitHub: https://github.com/cameroncooper/pot-potato</p>
+
+<div class="tags"><span>#chia</span><span>#blockchain</span><span>#games</span><span>#coin-puzzles</span><span>#royalties</span><span>#open-source</span><span>#chialisp</span><span>#builder-tools</span><span>#crypto-infrastructure</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>
