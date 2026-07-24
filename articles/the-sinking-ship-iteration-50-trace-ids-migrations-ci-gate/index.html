@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Sinking Ship Hits Iteration 50: Trace IDs, Versioned Migrations, and a CI Gate That Holds</title><style>:root{--bg:#0b0f14;--card:#121820;--tx:#e6edf3;--tx2:#9fb0c0;--acc:#5dcaa5;--line:#1e2731}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 -apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}.wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+header.site{border-bottom:1px solid var(--line);margin-bottom:26px}header.site a{color:var(--tx);text-decoration:none;font-weight:700;letter-spacing:.3px}
+img{max-width:100%;height:auto;border-radius:10px}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+h1{font-size:30px;line-height:1.25;margin:.2em 0 .3em}h2{font-size:21px;margin:1.6em 0 .4em}h3{font-size:17px;color:var(--tx2)}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:22px}
+blockquote{border-left:3px solid var(--acc);margin:1em 0;padding:.2em 0 .2em 14px;color:var(--tx2)}
+.explainer{margin:26px 0}.explainer img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.cap{color:var(--tx2);font-size:13px;text-align:center;margin-top:6px}
+.tags{margin-top:26px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--tx2);font-size:12px;padding:3px 9px;border-radius:999px;margin:0 6px 6px 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--tx);margin-bottom:18px}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.card .b{padding:14px 16px}.card h2{margin:.1em 0 .3em;font-size:18px;color:var(--tx)}.card .d{color:var(--tx2);font-size:13px}
+footer{color:var(--tx2);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}</style></head><body><div class="wrap">
+<header class="site"><p><a href="../../index.html">Signal Notes</a></p></header>
+<img class="cover" src="hero.png" alt="The Sinking Ship Hits Iteration 50: Trace IDs, Versioned Migrations, and a CI Gate That Holds">
+<div class="meta">Product Ideas &middot; 2026-07-24</div>
+<h1>The Sinking Ship Hits Iteration 50: Trace IDs, Versioned Migrations, and a CI Gate That Holds</h1>
+<p class="meta">Originally shared by <a href="https://github.com/FlipThisCrypto/The-Sinking-Ship" rel="noopener"></a> on X &middot; retrieved 2026-07-24. This is added context and credit, not the original work.</p>
+<p>I have been building The Sinking Ship in public, one iteration at a time. This week it crossed iteration 50, and I closed that milestone with a CI coherence gate that checks whether all 50 prior changes still hold together. Then round 2 started immediately: trace IDs on fulfillment events and a versioned migration framework for the SQLite ledger. Three changes, all pointing at the same thing.</p>
+<p>[HERO IMAGE]</p>
+<h2>What just shipped</h2>
+<p><strong>Milestone: CI coherence gate (iteration 50)</strong></p>
+<p>Iteration 50 landed with <code>test_full_ci_gate.py</code>, a test suite that validates coherence across all 50 iterations as a whole. This is not unit testing in isolation. It is a check that everything I have built still works together without silent regressions hiding in the seams. Closing a milestone by proving the whole thing is still standing felt like the right way to do it.</p>
+<p><strong>Incident correlation: UUID4 trace IDs on fulfillment events (round 2, iteration 1)</strong></p>
+<p>Every fulfillment tick event now carries a UUID4 <code>trace_id</code>. When something goes wrong in a system like this, you want to be able to grep a single ID and reconstruct exactly what happened across the log. Without it, you are reading tea leaves. With it, you have a thread to follow.</p>
+<p><strong>Database versioning: migration framework for SqliteLedger (round 2, iteration 2)</strong></p>
+<p>The SQLite ledger now has a proper versioned migration framework. The first migration under it (v2) adds an <code>archived_at</code> column, which enables soft-delete and archival on ledger rows without losing history. More important than the column itself is having the framework. Future schema changes are now structured operations, not manual risks.</p>
+<p>[EXPLAINER IMAGE]</p>
+<div class="explainer"><img src="explainer.png" alt="Minimal diagram showing three connected components: Ledger, Trace ID, and CI Gate"><div class="cap">Three changes. One direction: software that holds up over time.</div></div><h2>Why it matters</h2>
+<p>Trace IDs, schema migrations with versioning, and a CI gate that proves cross-iteration coherence are not glamorous features. They are the infrastructure of software that is meant to run over time, not just pass a demo. These three changes together are what building in public actually looks like when you are being honest about what the project needs.</p>
+<h2>Rick's take</h2>
+<p>I named this project The Sinking Ship partly as a joke about entropy in software, and partly as a genuine reminder that nothing ships unless you fight for it. Every iteration is a patch on the hull.</p>
+<p>Hitting 50 iterations was a real moment for me. The CI gate I wrote to close it has to pass across all 50 prior changes. That is what made it feel like a milestone rather than just a number. It is proof that I have not been silently breaking things as I go.</p>
+<p>The trace ID work is something I had been putting off, and I am glad round 2 started there. The second something goes sideways in a fulfillment ledger system, you need to be able to trace it. Now I can. The migration framework is the other piece I knew I needed before the ledger got any more complex. Both of these were the right first moves for round 2.</p>
+<h2>What's next</h2>
+<p>Round 2 is underway and the foundation is cleaner than round 1 ever was. The migration framework and trace infrastructure make it possible to add more complex fulfillment behavior without the data risk that came before. The direction is richer auditability and more structured tracking. More iterations coming.</p>
+<h2>Source</h2>
+<p>GitHub: <a href="https://github.com/FlipThisCrypto/The-Sinking-Ship" rel="noopener">FlipThisCrypto/The-Sinking-Ship</a></p>
+
+<div class="tags"><span>#the-sinking-ship</span><span>#building-in-public</span><span>#sqlite</span><span>#devlog</span><span>#software-infrastructure</span><span>#ci-cd</span><span>#ledger</span><span>#open-source</span></div>
+<footer>Published from a bookmark by the Signal Notes engine. Credit to the original author linked above.</footer>
+</div></body></html>
